@@ -1,13 +1,13 @@
 import React from 'react'
 
-const CartContext = React.CartContext({
+const CartContext = React.createContext({
   isDarkTheme: false,
   savedVideos: [],
-  addToSavedVideos: () => {},
+  addToSaveVideos: () => {},
   activeTabItem: () => {},
   activeTab: '',
   onChangeTheme: () => {},
-  removeSavedVideos: () => {},
+  removeSaveVideos: () => {},
 })
 
 export default CartContext

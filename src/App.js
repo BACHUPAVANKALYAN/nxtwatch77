@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
 
-import CartContext from '../context/CartContext'
 import LoginForm from './components/LoginRoute'
 import HomeRoute from './components/HomeRoute'
 import NotFound from './components/NotFound'
@@ -10,6 +9,8 @@ import VideoDetails from './components/VideoItemDetailsRoute'
 import TrendingRoute from './components/TrendingRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideosRoute from './components/SavedVideosRoute'
+
+import CartContext from '../context/CartContext'
 
 import './App.css'
 
@@ -57,7 +58,7 @@ class App extends Component {
         value={{
           isDarkTheme,
           savedVideos,
-          addToSaveVideos: this.addToSavedVideos,
+          addToSaveVideos: this.addToSaveVideos,
           activeTabItem: this.activeTabItem,
           activeTab,
           onChangeTheme: this.onChangeTheme,
@@ -69,7 +70,11 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={HomeRoute} />
           <ProtectedRoute exact path="/trending" component={TrendingRoute} />
           <ProtectedRoute exact path="/gaming" component={GamingRoute} />
-          <ProtectedRoute exact path="/saved-videos" component={savedVideos} />
+          <ProtectedRoute
+            exact
+            path="/saved-videos"
+            component={SavedVideosRoute}
+          />
           <ProtectedRoute exact path="/videos/:id" component={VideoDetails} />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
